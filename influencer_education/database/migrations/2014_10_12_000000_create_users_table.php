@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name_kana')->nullable();;
             $table->string('email')->unique();;
             $table->string('password');
-            $table->string('profile_image');
-            $table->integer('classes_id');
+            $table->string('profile_image')->nullable();
+            $table->integer('classes_id')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
