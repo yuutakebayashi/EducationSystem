@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('curricurum_progress', function (Blueprint $table) {
+        Schema::create('curriculms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('curriculumus_id');
-            $table->unsignedBigInteger('users_id');
-            $table->tinyInteger('clear_flg');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->string('title');
+            $table->string('thumbnail');
+            $table->longText('description');
+            $table->text('dvideo_url');
+            $table->tinyInteger('alway_delivery_flg');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curricurum_progress');
+        Schema::dropIfExists('curriculms');
     }
 };

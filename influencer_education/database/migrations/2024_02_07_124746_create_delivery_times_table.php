@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('curriculums', function (Blueprint $table) 
-        {
+        Schema::create('delivery_times', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('thumbnail');
-            $table->longText('description');
-            $table->text('dvideo_url');
-            $table->tinyInteger('alway_delivery_flg');
+            $table->dateTime('delivery_from');
+            $table->dateTime('delivery_to');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curriculums');
+        Schema::dropIfExists('delivery_times');
     }
 };

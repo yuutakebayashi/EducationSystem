@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('delivery_times', function (Blueprint $table) 
-        {
-            $table->id();
-            $table->dateTime('delivery_from');
-            $table->dateTime('delivery_to');
-            $table->timestamps();
+        Schema::table('delivery_times', function (Blueprint $table) {
+            $table->foreignId('curriculums_id')->after('id');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('delivery_times');
+        Schema::table('delivery_times', function (Blueprint $table) {
+            $table->dropColumn('curriculums_id');
+        });
     }
 };
