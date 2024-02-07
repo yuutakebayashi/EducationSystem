@@ -13,7 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('delivery_times', function (Blueprint $table) {
+        Schema::table('delivery_times', function (Blueprint $table)
+        {
             $table->foreignId('curriculums_id')->after('id');
         });
     }
