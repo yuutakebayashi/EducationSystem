@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();;
             $table->string('password');
             $table->string('profile_image')->nullable();
-            $table->integer('classes_id')->nullable();
+            $table->unsignedBigInteger('now_class');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
