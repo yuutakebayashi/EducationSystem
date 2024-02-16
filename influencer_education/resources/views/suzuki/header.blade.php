@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('top.index') }}">時間割</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('delivery.show') }}">時間割</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('top.index') }}">授業進捗</a>
@@ -29,7 +29,14 @@
                     </li>
                 </ul>
             </div>
-            <a class="navbar-brand nav-link" href="{{ route('login') }}">ログアウト</a>
+            @if (Auth::check())
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-link nav-link">{{ __('ログアウト') }}</button>
+            </form>
+            @else
+            <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+            @endif
         </div>
     </nav>
 

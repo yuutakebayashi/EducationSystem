@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'name_kana' => ['nullable', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'now_class' => ['integer'],
         ]);
     }
 
@@ -69,6 +70,7 @@ class RegisterController extends Controller
             'name_kana' => $data['name_kana'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'now_class' => $data['now_class'],
         ]);
     }
 }

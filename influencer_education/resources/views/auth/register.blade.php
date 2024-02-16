@@ -80,6 +80,20 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="now_class" class="col-md-4 col-form-label text-md-end">{{ __('クラス名') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="now_class" type="text" class="form-control @error('now_class') is-invalid @enderror" name="now_class" value="{{ old('now_class') }}" autocomplete="now_class" autofocus>
+
+                                @error('now_class')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

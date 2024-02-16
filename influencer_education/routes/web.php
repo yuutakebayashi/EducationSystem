@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DeliveryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ Route::post('/admin/password/reset', [App\Http\Controllers\admin\ResetPasswordCo
 
 // トップページ
 Route::get('/top',[TopController::class,'index'])->name('top.index');
+// 配信ページ
+Route::get('/delivery',[DeliveryController::class,'show'])->name('delivery.show');
 
 Route::get('/banner/new', [BannerController::class, 'new'])->name('banner.new');
 Route::post('/banner/create', [BannerController::class, 'create'])->name('banner.create');
