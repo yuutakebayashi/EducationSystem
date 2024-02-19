@@ -15,6 +15,8 @@ class Curriculum extends Model
     protected $fillable = [
         'title',
         'description',
+        'video_url',
+        'alway_delivery_flg',
         'classes_id',
     ];
 
