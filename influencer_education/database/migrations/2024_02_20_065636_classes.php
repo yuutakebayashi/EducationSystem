@@ -11,6 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
+    /*　2/20更新　*/
     public function up()
     {
         Schema::create('classes', function (Blueprint $table) {
