@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Grade;
 // use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Curriculum_Progress;
+use App\Models\CurriculumProgress;
+use Illuminate\Support\Facades\DB;
 
 
 class DeliveryController extends Controller
@@ -19,11 +22,13 @@ class DeliveryController extends Controller
         // $grades = Grade::all();
         $gradeName = Grade::where('id', $user->now_class)->value('name');
         $curriculums = Curriculum::all();
+        $grade = Grade::with('curriculums')->find($user->now_class);
+
         return view('suzuki.delivery',[
             'user'=>$user,
             'curriculums' => $curriculums,
-            // 'grades'=>$grades,
-            'gradeName' => $gradeName
+            'gradeName' => $gradeName,
+            'grade' => $grade,
         ]);
     }
 }

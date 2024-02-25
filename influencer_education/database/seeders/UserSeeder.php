@@ -15,12 +15,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            "name"=>"鈴木絢大",
-            "name_kana"=>"スズキケンタ",
-            "email"=>"suzuken0301@icloud.com",
-            "password"=>"t9uvpadz",
-            "now_class"=>"1",
-        ]);
+        // User::create([
+        //     "name"=>"鈴木絢大",
+        //     "name_kana"=>"スズキケンタ",
+        //     "email"=>"suzuken0301@icloud.com",
+        //     "password"=>"t9uvpadz",
+        //     "now_class"=>"1",
+        // ]);
     }
 }

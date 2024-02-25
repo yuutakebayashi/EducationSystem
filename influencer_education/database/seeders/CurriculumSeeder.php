@@ -15,10 +15,10 @@ class CurriculumSeeder extends Seeder
      */
     public function run()
     {
-        Curriculum::create([
-            "title"=>"授業タイトル",
-            "description"=>"ここに講座の説明がはいります",
-            "classes_id"=>"1",
-        ]);
+        // Curriculum::create([
+        //     "title"=>"授業タイトル",
+        //     "description"=>"ここに講座の説明がはいります",
+        //     "classes_id"=>"1",
+        // ]);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\TopController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\CurriculumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,16 @@ Route::get('/top',[TopController::class,'index'])->name('top.index');
 // 配信ページ
 Route::get('/delivery',[DeliveryController::class,'show'])->name('delivery.show');
 
+//データ入力ページ
 Route::get('/banner/new', [BannerController::class, 'new'])->name('banner.new');
 Route::post('/banner/create', [BannerController::class, 'create'])->name('banner.create');
 Route::get('/banner/getfile/{id}',[BannerController::class,'getfile'])->name('banner.getfile');
+
+Route::get('/curriculum/news',[CurriculumController::class,'news'])->name('curriculum.news');
+Route::post('curriculum/create',[CurriculumController::class,'creates'])->name('curriculum.creates');
+Route::get('/curriculum/getfile/{id}',[CurriculumController::class,'getfiles'])->name('curriculum.getfiles');
+
+
 
 
 

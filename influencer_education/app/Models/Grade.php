@@ -16,8 +16,8 @@ class Grade extends Model
         "name",
     ];
 
-    public function curriculum(){
-        return $this->hasMany(Curriculum::class);
+    public function curriculums(){
+        return $this->hasMany(Curriculum::class, 'classes_id', 'id');
     }
     public function user(){
         return $this->hasMany(User::class);
