@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin; //修正
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider; //修正
 use App\Models\Admin;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;

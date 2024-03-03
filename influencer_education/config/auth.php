@@ -74,7 +74,7 @@ return [
         ],
         'admins' => [
             'driver' => 'eloquent',               //追記
-            'midel' => App\Models\Admin::class,   //追記
+            'model' => App\Models\Admin::class,   //追記
         ],
     ],
 
