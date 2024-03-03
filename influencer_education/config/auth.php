@@ -41,11 +41,11 @@ return [
             'provider' => 'users',
         ],
         'user' => [
-            'driver' => 'session',   //追記
-            'provider' => 'users',   //追記
+            'driver' => 'session',   
+            'provider' => 'users',   
         ],
         'admin' => [
-            'driver' => 'ssesion',   //追記
+            'driver' => 'session',   //追記
             'provider' => 'admins',  //追記
         ],
     ],
@@ -72,7 +72,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
         'admins' => [
             'driver' => 'eloquent',               //追記
             'midel' => App\Models\Admin::class,   //追記
