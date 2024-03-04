@@ -5,14 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                
+                <a href="{{ url('admin/login')}}" class="text-end">ログインはこちらから</a>
+                <h1 class="text-center">新規管理ユーザー登録</h1>
 
                 <div class="card-body">
                     <form method="POST" action="{{ url('admin/register') }}">  
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('ユーザーネーム') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -25,8 +27,24 @@
                             </div>
                         </div>
 
+                        {{-- カナ追加_0304_エラー部分未着手 --}}
+                        <div class="row mb-3"> 
+                            <label for="kana" class="col-md-4 col-form-label text-md-end">{{ __('カナ') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="kana" type="text" class="form-control @error('kana') is-invalid @enderror" name="kana" value="{{ old('kana') }}" required autocomplete="kana" autofocus>
+
+                                @error('kana')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -40,7 +58,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -54,7 +72,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('パスワード確認') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -64,7 +82,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('登録') }}
                                 </button>
                             </div>
                         </div>
