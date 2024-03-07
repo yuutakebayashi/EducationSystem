@@ -34,6 +34,7 @@ Route::view('/admin/register', 'admin/register');
 Route::post('/admin/register', [App\Http\Controllers\admin\RegisterController::class, 'register']);
 Route::view('/admin/home', 'admin/home')->middleware('auth:admin');
 
+
 Route::view('/admin/password/reset', 'admin/passwords/email');
 Route::post('/admin/password/email', [App\Http\Controllers\admin\ForgotPasswordController::class, 'sendResetLinkEmail']);
 Route::view('/admin/password/reset/{token}', [App\Http\Controllers\admin\ResetPasswordController::class,'showResetForm']);
@@ -52,6 +53,18 @@ Route::get('/banner/getfile/{id}',[BannerController::class,'getfile'])->name('ba
 Route::get('/curriculum/news',[CurriculumController::class,'news'])->name('curriculum.news');
 Route::post('curriculum/create',[CurriculumController::class,'creates'])->name('curriculum.creates');
 Route::get('/curriculum/getfile/{id}',[CurriculumController::class,'getfiles'])->name('curriculum.getfiles');
+
+
+// Route::post('/update-curriculum-progress', [DeliveryController::class, 'update'])->name('delivery.update');
+// Route::any('/update-curriculum-progress', [DeliveryController::class, 'update'])->name('delivery.update');
+
+Route::match(['get', 'post'], '/update-curriculum-progress', [DeliveryController::class, 'update'])->name('delivery.update');
+
+
+
+
+
+
 
 
 

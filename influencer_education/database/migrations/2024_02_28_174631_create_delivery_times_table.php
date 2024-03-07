@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
 return new class extends Migration
 {
     /**
@@ -14,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('curriculums', function (Blueprint $table) {
+        Schema::create('delivery_times', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('thumbnail')->nullable();
-            $table->longText('description');
-            $table->mediumText('video_url');
-            $table->tinyInteger('alway_delivery_flg')->default(0);
-            $table->unsignedBigInteger('classes_id');
+            $table->unsignedBigInteger('curriculums_id');
+            $table->dateTime('delivery_from');
+            $table->dateTime('delivery_to');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curriculums');
+        Schema::dropIfExists('delivery_times');
     }
 };

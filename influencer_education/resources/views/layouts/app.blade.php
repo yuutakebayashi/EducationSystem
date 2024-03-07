@@ -15,6 +15,12 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        .custom-link {
+    font-size: 16px;
+}
+    </style>
 </head>
 <body>
     <div id="app">

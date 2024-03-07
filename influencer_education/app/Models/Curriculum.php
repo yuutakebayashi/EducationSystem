@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Grade;
 use App\Models\Curriculum_Progress;
+use App\Models\Delivery_time;
 
 class Curriculum extends Model
 {
@@ -22,10 +23,14 @@ class Curriculum extends Model
     ];
 
     public function grade(){
-        return $this->belongsTo(Grade::class, 'classes_id');
+        return $this->belongsTo(Grade::class,'classes_id');
     }
 
-    public function curricurum_progress(){
-        return $this->hasMany(Curricurum_progress::class,'curriculums_id');
+    public function curriculum_progress(){
+        return $this->hasMany(Curriculum_Progress::class,'curriculums_id');
+    }
+
+    public function delivery_time(){
+        return $this->hasMany(Delivery_time::class,'curriculums_id');
     }
 }

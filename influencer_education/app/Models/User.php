@@ -28,8 +28,12 @@ class User extends Authenticatable
         'now_class',
     ];
 
-    public function classes(){
-        return $this->belongsTo(Classes::class);
+    public function grade(){
+        return $this->belongsTo(Grade::class,'classes_id');
+    }
+
+    public function curriculum_progress(){
+        return $this->hasMany(Curriculum_Progress::class,'users_id');
     }
 
     /**
