@@ -59,6 +59,14 @@
 <script>
     $(document).ready(function(){
         $('.target').click(function(){
+
+            if ($(this).hasClass('completed')) {
+            return;
+            }
+
+            var curriculumId = $(this).data('curriculum');
+            var button = $(this);
+
             var curriculumId = $(this).data('curriculum');
             $.ajax({
                 url: '{{ route('delivery.update') }}',
@@ -72,6 +80,10 @@
             }).done(function( data ) {
                 $('#update').text('clear_flg:'+data.value);
                 console.log(data);
+
+                button.addClass('completed');
+                button.prop('disabled', true);
+                button.text('受講済み');
             });
         });
     });
