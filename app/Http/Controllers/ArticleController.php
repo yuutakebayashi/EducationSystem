@@ -58,7 +58,7 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $updateArticle = $this->article->updateArticle($request, $article);
 
-        return redirect()->route('showList.admininfoedit', ['id'=>$article->id]);
+        return redirect()->route('showList.admininfoedit', ['id'=>$article->id])->with('message', '登録しました');
     }
 
     /* お知らせ変更 - 新規登録 */
@@ -80,6 +80,6 @@ class ArticleController extends Controller
         return back();
     }
 
-    return redirect(route('showList.admininfocreate'));
+    return redirect(route('showList.admininfocreate'))->with('message', '登録しました');
     }
 }

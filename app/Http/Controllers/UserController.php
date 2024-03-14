@@ -33,7 +33,7 @@ class UserController extends Controller
         $user = User::find($id);
         $updateUser = $this->user->updateUser($request, $user);
 
-        return redirect()->route('showList.prof', ['id'=>$user->id]);
+        return redirect()->route('showList.prof', ['id'=>$user->id])->with('message', '登録しました');
     }
 
     /* パスワード変更 */

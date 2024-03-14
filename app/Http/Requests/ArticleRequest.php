@@ -44,7 +44,7 @@ public function messages() {
         'title.required' => ':attributeは必須項目です。',
         'posted_date.required' => ':attributeは必須項目です。',
         'article_contents.required' => ':attributeは必須項目です。',
-        'posted_date.date' => ':attributeは:半角英数字で入力してください。',
+        'posted_date.date' => ':attributeは”YY-MM-DD”形式で入力してください。',
     ];
 }
 

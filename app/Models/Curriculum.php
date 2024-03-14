@@ -18,5 +18,10 @@ class Curriculum extends Model
         return $this->hasMany('App\User');
     }
 
+    /* Curriculum_progressモデルとの紐付け */
+    public function curriculum_progress() {
+        return $this->hasMany('App\User');
+    }
+
     protected $table ='curriculums';
 }

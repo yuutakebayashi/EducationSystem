@@ -29,6 +29,9 @@
 </tr>
 <tr>
 <td class=""><button class="" type="submit">登録</button>
+@if(session('message'))
+<div class="alert alert-success">{{session('message')}}</div>
+@endif
 </tr>
 </form>
   </table>
