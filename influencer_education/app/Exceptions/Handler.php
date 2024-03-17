@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request,Throwable $exception)
     {
         if($request->expectsJson()) {
-            return respomse()->json(['message' => $exception->getMessage()],401);
+            return response()->json(['message' => $exception->getMessage()],401);
         }
         if($request->is('admin') || $request->is('admin/*')){
             return redirect()->guest('/admin/login');
