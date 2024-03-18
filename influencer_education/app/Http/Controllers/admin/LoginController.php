@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth; //追記
-use App\Providers\RouteServiceProvider; //追記
+use Illuminate\Http\Request; //logoutのリクエストは使えてなかったので、追記
 
 class LoginController extends Controller
 {
