@@ -62,9 +62,9 @@
                                 </button>
 
                                 {{--@if (Route::has('password.request'))--}}
-                                    <a class="btn btn-link" href="{{ url('admin/password/request') }}">
+                                    {{-- <a class="btn btn-link" href="{{ url('admin/password/request') }}">
                                         パスワードを忘れた方はこちら
-                                    </a>
+                                    </a> --}}
                                 {{--@endif--}}
                             </div>
                         </div>
