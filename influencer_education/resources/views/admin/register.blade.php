@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 
+                {{-- 追加 --}}
                 <a href="{{ url('admin/login')}}" class="text-end">ログインはこちらから</a>
                 <h1 class="text-center">新規管理ユーザー登録</h1>
 
@@ -27,7 +28,7 @@
                             </div>
                         </div>
 
-                        {{-- カナ追加_0304_エラー部分未着手 --}}
+                        {{-- カナ追加--}}
                         <div class="row mb-3"> 
                             <label for="kana" class="col-md-4 col-form-label text-md-end">{{ __('カナ') }}</label>
 
