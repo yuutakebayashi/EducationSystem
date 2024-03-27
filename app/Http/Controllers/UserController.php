@@ -8,6 +8,7 @@ use App\Models\Grade;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -44,16 +45,26 @@ class UserController extends Controller
 
     public function updatePassword(Request $request) {
         
-        $request->validate([
-            'current_password' => ['required', new CurrentPasswordRule],
-            // 他のバリデーションルールを追加
-            'new_password' => 'required|string|min:8|confirmed',
+        //現在のパスワードが正しいかを調べる
+        if(!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+        return redirect()->route('showList.pass')->withInput()->withErrors(array('current-password' => '現在のパスワードが間違っています'));
+        }
+
+        //現在のパスワードと新しいパスワードが正しいかを調べる
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0) {
+        return redirect()->route('showList.pass')->withInput()->withErrors(array('new-password' => '新しいパスワードが現在のパスワードと同じです'));
+        }
+
+        //パスワードのバリデーション。新しいパスワードは8文字以上、new-password_confirmationフィールドの値と一致しているかどうか。
+        $validated_date = $request->validate([
+        'current-password' => 'required',
+        'new-password' => 'required|string|min:8|confirmed',
         ]);
 
     
         //パスワードを変更
         $user = Auth::user();
-        $user->password = Hash::make($request->get('new_password'));
+        $user->password = Hash::make($request->get('new-password'));
         $user->save();
     
         return redirect()->route('showList.pass')->with('flash_message', 'パスワードを変更しました');

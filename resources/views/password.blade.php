@@ -11,18 +11,18 @@
     <form method="post" action="{{ route('password.update', ['id'=>$user->id]) }}">
     @csrf
      <tr>
-        <th><div><label>旧パスワード</label></th> <td><input class="profile__pwd__input" type="" name="current_password" id="current_password" value="">
-        @error('current_password')
+        <th><div><label>旧パスワード</label></th> <td><input class="profile__pwd__input" type="" name="current-password" id="current-password" value="">
+        @error('current-password')
         <div class="text-danger">
             {{ $message }}
         </div>
     @enderror</div></td>
 </tr>
 <tr>
-        <th><div><label>新パスワード</label></th> <td><input class="profile__pwd__input" type="" name="new_password" id="new_password" value=""></div></td>
+        <th><div><label>新パスワード</label></th> <td><input class="profile__pwd__input" type="" name="new-password" id="new-password" value=""></div></td>
 </tr>
 <tr>
-        <th><div><label>新パスワード確認</label></th> <td><input class="profile__pwd__input" type="" name="new_password_confirm" id="new_password_confirm" value=""></div></td>
+        <th><div><label>新パスワード確認</label></th> <td><input class="profile__pwd__input" type="" name="new-password_confirmation" id="new-password_confirm" value=""></div></td>
 </tr>
 <th></th>
 <td class="profile__submit__td"><button class="profile__pwd__submit__btn" type="submit">登録</button>
