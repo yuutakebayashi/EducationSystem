@@ -4,14 +4,21 @@
 <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 </head>
 <body>
-<div class="index__main__container">
+<div class="profile__main__container">
 <a href=""><div>←戻る</div></a>
 <h1>プロフィール変更</h1>
-    <table class="index__main__table">
+    <table class="profile__main__table">
     <form method="post" action="{{ route('profile.update', ['id'=>$user->id]) }}" enctype="multipart/form-data">
     @csrf
 <tr>
-<th><div><label>プロフィール画像</label></th> <td><input type="file" name="profile_image" value="{{ $user->profile_image }}"><img src="{{ asset($user->profile_image) }}" class="index__main__table__img"></div></td>
+<td>
+    @if(!empty($user->profile_image))
+    <img src="{{ asset($user->profile_image) }}" class="profile__main__table__img">
+     @else
+     <img src="{{ asset('storage/image/noimage.png')}}" class="profile__main__table__img">
+    @endif
+</td><td><div class="profile__img__label">プロフィール画像</div><input type="file" name="profile_image" value="{{ $user->profile_image }}">
+    </td>
 </tr>
      <tr>
         <th><div><label>ユーザーネーム</label></th> <td><input type="text" name="name" id="name" value="{{ $user->name }}">
@@ -32,10 +39,11 @@
                     @endif</div></td>
 </tr>
 <tr>
-        <th><div><label>パスワード</label></th> <td><button class="" type="button" onclick="location.href='{{ route('showList.pass', ['id'=>$user->id]) }}'">{{ __('パスワードを変更する') }}</button></div></td>
+        <th><div><label>パスワード</label></th> <td><button class="profile__psw__btn" type="button" onclick="location.href='{{ route('showList.pass', ['id'=>$user->id]) }}'">{{ __('パスワードを変更する') }}</button></div></td>
 </tr>
 <tr>
-<td class=""><button class="" type="submit">登録</button>
+<th></th>
+<td class="profile__submit__td"><button class="profile__submit__btn" type="submit">登録</button>
 @if(session('message'))
 <div class="alert alert-success">{{session('message')}}</div>
 @endif

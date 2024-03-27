@@ -4,19 +4,27 @@
 <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 </head>
 <body>
-<div class="index__main__container">
+<div class="progress__main__container">
 <a href=""><div>←戻る</div></a>
-<table class="index__main__table">
+<table class="progress__main__table">
 <tr>
-<td><div><img src="{{ asset($user->profile_image) }}" class="index__main__table__img"></div></td>
-<td><div>{{ $user->name }}さんの授業進捗<br>現在の学年：{{ $user->classes_name }}</div>
+<td class="progress__main__table__img">
+@if(!empty($user->profile_image))
+    <img src="{{ asset($user->profile_image) }}" class="profile__main__table__img">
+     @else
+     <img src="{{ asset('storage/image/noimage.png')}}" class="profile__main__table__img">
+    @endif
+</td>
+<td><div class="progress__user__info">{{ $user->name }}さんの授業進捗<br>現在の学年：<span class="curriculum__grade__index">{{ $user->classes_name }}</span></div></td>
 </tr>
 </table>
+<div class="curriculum__main__container">
 @foreach ($classes_lists as $classes_list)
-<table id="class_{{ $classes_list->id }}">
+<div class="curriculum__main__table">
+<table class="" id="class_{{ $classes_list->id }}">
     <tr>
         <th>
-          {{ $classes_list->name }}
+          <span class="curriculum__grade__index">{{ $classes_list->name }}</span>
         </th>
     </tr>
     <tr>
@@ -31,23 +39,23 @@
                   @if ($clear_flg == 1)
                 {{-- ユーザーが受講済のカリキュラムの場合 --}}
                     @if($classes_list->id === $curriculum->class_id)
-                <div><span style="width: 60px; display: inline-block">受講済</span><a href="">{{ $curriculum->title }}</a></div>
+                <div><span class="clear_label">受講済</span><a href="">{{ $curriculum->title }}</a></div>
                     @endif
                   @else
                 {{-- ユーザーが未受講のカリキュラムの場合 --}}
                   @if($classes_list->id === $curriculum->class_id)
-                <div><span style="width: 60px; display: inline-block"></span><a href="">{{ $curriculum->title }}</a></div>
+                <div><span class="clear_label"></span><a href="">{{ $curriculum->title }}</a></div>
                   @endif
                 @endif
                 @else
                 {{-- ユーザーがクリアしていない学年の場合 --}}
                   @if($classes_list->id === $curriculum->class_id)
-                <div><span style="width: 60px; display: inline-block"></span>{{ $curriculum->title }}</div>
+                <div class="not_cleared"><span class="clear_label"></span>{{ $curriculum->title }}</div>
                   @endif
                 @endif
               @endforeach
             </td>
     </tr>
-</table>
+</table></div>
 @endforeach
-</div>
+</div></div>

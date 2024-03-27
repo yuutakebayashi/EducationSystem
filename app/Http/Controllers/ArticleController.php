@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ArticleRequest;
+use Carbon\Carbon;
 
 class ArticleController extends Controller
 {
@@ -63,7 +64,11 @@ class ArticleController extends Controller
 
     /* お知らせ変更 - 新規登録 */
     public function showListCreate() {
-        return view('admin_info_create');
+
+        $now = strtotime('+9 hour');
+        return view('admin_info_create', compact(
+            'now',
+        ));
     }
 
     public function createArticle(ArticleRequest $request)

@@ -16,6 +16,16 @@ class Article extends Model
         'updated_at'
      ];
 
+    protected $dates = [
+        'posted_date',
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $casts = [
+        'posted_date' => 'datetime',
+    ];
+
     public function getList() {
         $articles = DB::table('articles')->get();
 

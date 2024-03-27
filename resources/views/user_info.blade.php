@@ -4,19 +4,19 @@
 <link rel="stylesheet" href="{{asset('/css/style.css')}}">
 </head>
 <body>
-<div class="index__main__container">
+<div class="user__main__container">
 <a href=""><div>←戻る</div></a>
-<table class="index__main__table">
+<table class="user__main__table">
 <tbody>
 @foreach ($articles as $article)
-<tr>
-<td>{{ $article->posted_date }}</td>
+<tr class="user__info__date">
+<td>{{ \Carbon\Carbon::parse($article->posted_date)->format('Y年n月j日') }}</td>
 </tr>
 <tr>
-<td>{{ $article->title }}</td>
+<td class="user__info__title">{{ $article->title }}</td>
 </tr>
 <tr>
-<td>{{ $article->article_contents }}</td>
+<td><div class="user__info__contents">{{ $article->article_contents }}</div></td>
 @endforeach
 </tr>
 </tbody>
